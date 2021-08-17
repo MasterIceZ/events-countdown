@@ -1,17 +1,19 @@
-import { Box } from "@chakra-ui/react";
-
-import SomeText from "components/SomeText";
-import SomeImage from "components/SomeImage";
-import CTASection from "components/CTASection";
+import { Text, Box } from "@chakra-ui/react";
 
 const Home = () => {
   return (
     <Box mb={8} w="full">
-      <SomeText />
-      <SomeImage />
-      <CTASection />
+      <Text>Hello World</Text>
     </Box>
   );
 };
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      value: new Date().getTime()
+    }
+  }
+}
 
 export default Home;

@@ -1,14 +1,17 @@
 import { Flex, Link, Text } from "@chakra-ui/react";
+import styles from '../../styles/global.css';
 
 const Footer = () => {
   return (
-    <Flex as="footer" width="full" align="center">
-      <Text>
-        {new Date().getFullYear()} -{" "}
-        <Link href="https://sznm.dev" isExternal>
-          sznm.dev
-        </Link>
-      </Text>
+    <Flex>
+      <div className="footer">
+        <Text>
+            {new Date().getFullYear()} -{" "}
+          <Link href="https://github.com/MasterIceZ" isExternal>
+            MasterIceZ
+          </Link>
+        </Text>
+      </div>
     </Flex>
   );
 };

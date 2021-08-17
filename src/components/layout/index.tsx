@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 import Header from "./Header";
@@ -18,7 +18,9 @@ const Layout = ({ children }: LayoutProps) => {
         <Box as="main" marginY={22}>
           {children}
         </Box>
-        <Footer />
+        <Center>
+          <Footer />
+        </Center>
       </Box>
     </Box>
   );

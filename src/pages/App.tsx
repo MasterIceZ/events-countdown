@@ -72,7 +72,8 @@ function App(){
     return (
         <>
             <div id={styles.cen}>
-                <Text id={styles.title} color="gray.500">{Wanted.event} will begin in...</Text>
+                <Text id={styles.title} color="gray.500">{Wanted.event}</Text>
+                <Text id={styles.title} color="gray.500">will begin in</Text>
                 <Text id={styles.content}>{print}</Text>
             </div>
         </>

@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Flex>
       <Box marginBottom="auto">
-        <Text id={styles.bot}>
+        <Text fontSize="2xl" id={styles.bot}>
           {new Date().getFullYear()} -{" "}
           <Link href="https://github.com/MasterIceZ" isExternal>
             MasterIceZ

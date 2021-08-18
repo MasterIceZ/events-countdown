@@ -1,5 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
-import { Text, Center } from '@chakra-ui/react';
+import { Text, Center, Stack, Box, useEventListenerMap } from '@chakra-ui/react';
+import { Wanted } from './update';
+import styles from '../styles/App.module.css';
 function App(){
     const calculate = () => {
         let year: number = new Date().getFullYear();
@@ -37,17 +39,53 @@ function App(){
         );
     });
     const comp_ = {
-        days: String(Math.floor((new Date('September 1, 2021 00:00:00').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))),
-        hours: String(Math.floor(((new Date('September 1, 2021 00:00:00').getTime() - new Date().getTime())/ (1000 * 60 * 60)) % 24)),
-        minutes: String(Math.floor(((new Date('September 1, 2021 00:00:00').getTime() - new Date().getTime()) / 1000 / 60) % 60)),
-        seconds: String(Math.floor(((new Date('September 1, 2021 00:00:00').getTime() - new Date().getTime()) / 1000) % 60))
+        diff: Number(new Date(Wanted.date).getTime() - new Date().getTime()),
+        days: Math.floor((new Date(Wanted.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime())/ (1000 * 60 * 60)) % 24),
+        minutes: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime()) / 1000 / 60) % 60),
+        seconds: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime()) / 1000) % 60)
     };
+    let print:String = "";
+    if(comp_.diff < 0){
+        print = "Expired";
+    }
+    else{
+        if(comp_.days < 10){
+            print += "0" + String(comp_.days);
+        }
+        else{
+            print += String(comp_.days);
+        }
+        print += ' : '
+        if(comp_.hours < 10){
+            print += "0" + String(comp_.hours);
+        }
+        else{
+            print += String(comp_.hours);
+        }
+        print += ' : '
+        if(comp_.minutes < 10){
+            print += "0" + String(comp_.minutes);
+        }
+        else{
+            print += String(comp_.minutes);
+        }
+        print += ' : '
+        if (comp_.seconds < 10) {
+            print += "0" + String(comp_.seconds);
+        }
+        else {
+            print += String(comp_.seconds);
+        }
+    }
+
     return (
-        <Center>
-            <Text>
-                {comp_.hours} : {comp_.minutes} : {comp_.seconds}
-            </Text>
-        </Center>
+        <>
+            <div id={styles.cen}>
+                <Text id={styles.title} color="gray.500">{Wanted.event} will begin in...</Text>
+                <Text id={styles.content}>{print}</Text>
+            </div>
+        </>
     )
 }
 

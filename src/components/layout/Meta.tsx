@@ -1,9 +1,10 @@
 import Head from "next/head";
+import { Wanted } from "../../pages/update";
 
 const Meta = () => {
   return (
     <Head>
-      <title>Event Timer</title>
+      <title>{Wanted.event} Timer</title>
     </Head>
   );
 };

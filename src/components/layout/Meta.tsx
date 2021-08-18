@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Wanted } from "../../pages/update";
+import { Wanted } from "../const/update";
 
 const Meta = () => {
   return (

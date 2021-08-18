@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { Text, Center, Stack, Box, useEventListenerMap } from '@chakra-ui/react';
-import { Wanted } from './update';
+import { Wanted } from '../components/const/update';
 import styles from '../styles/App.module.css';
 function App(){
     const calculate = () => {

@@ -28,16 +28,6 @@ function App(){
     });
 
     const timerComp = [];
-    Object.keys(timeLeft).forEach((interval) => {
-        if (!timeLeft[interval]) {
-            return;
-        }
-        timerComp.push(
-            <span>
-                {timeLeft[interval]} {interval}{" "}
-            </span>
-        );
-    });
     const comp_ = {
         diff: Number(new Date(Wanted.date).getTime() - new Date().getTime()),
         days: Math.floor((new Date(Wanted.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)),

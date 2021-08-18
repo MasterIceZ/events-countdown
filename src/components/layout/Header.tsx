@@ -10,7 +10,7 @@ const Header = () => {
 
       </AccessibleLink>
 
-      <Box marginLeft="auto">
+      <Box marginTop="auto">
         <ThemeToggle />
       </Box>
     </Flex>

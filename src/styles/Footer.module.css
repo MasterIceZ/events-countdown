@@ -1,6 +1,8 @@
 #bot {
     position: fixed;
+    padding: 10px 10px 0px 10px;
     width: 100%;
     bottom: 0;
+    height: 40px;
     text-align: center;
 }

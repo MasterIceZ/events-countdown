@@ -4,7 +4,7 @@ import { Wanted } from "../const/update";
 const Meta = () => {
   return (
     <Head>
-      <title>{Wanted.event} Timer</title>
+      <title>{Wanted.event} Countdown</title>
     </Head>
   );
 };

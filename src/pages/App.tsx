@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { Text, Center, Stack, Box, useEventListenerMap } from '@chakra-ui/react';
-import { Wanted } from '../components/const/update';
+import { Event } from '../components/const/update';
 import styles from '../styles/App.module.css';
 function App(){
     const calculate = () => {
@@ -29,11 +29,11 @@ function App(){
 
     const timerComp = [];
     const comp_ = {
-        diff: Number(new Date(Wanted.date).getTime() - new Date().getTime()),
-        days: Math.floor((new Date(Wanted.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime())/ (1000 * 60 * 60)) % 24),
-        minutes: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime()) / 1000 / 60) % 60),
-        seconds: Math.floor(((new Date(Wanted.date).getTime() - new Date().getTime()) / 1000) % 60)
+        diff: Number(new Date(Event.date).getTime() - new Date().getTime()),
+        days: Math.floor((new Date(Event.date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(((new Date(Event.date).getTime() - new Date().getTime())/ (1000 * 60 * 60)) % 24),
+        minutes: Math.floor(((new Date(Event.date).getTime() - new Date().getTime()) / 1000 / 60) % 60),
+        seconds: Math.floor(((new Date(Event.date).getTime() - new Date().getTime()) / 1000) % 60)
     };
     let print:String = "";
     if(comp_.diff < 0){
@@ -72,7 +72,7 @@ function App(){
     return (
         <>
             <div id={styles.cen}>
-                <Text id={styles.title} color="gray.500">{Wanted.event}</Text>
+                <Text id={styles.title} color="gray.500">{Event.name}</Text>
                 <Text id={styles.title} color="gray.500">will begin in</Text>
                 <Text id={styles.content}>{print}</Text>
             </div>

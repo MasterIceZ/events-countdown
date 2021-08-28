@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { Wanted } from "../const/update";
+import { Event } from "../const/update";
 
 const Meta = () => {
   return (
     <Head>
-      <title>{Wanted.event} Countdown</title>
+      <title>{Event.name} Countdown</title>
     </Head>
   );
 };

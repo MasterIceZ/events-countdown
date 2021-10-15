@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Event } from "../const/update";
+import { Event } from "../const/event";
 
 const Meta = () => {
   return (

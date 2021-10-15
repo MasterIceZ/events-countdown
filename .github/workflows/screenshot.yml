@@ -1,0 +1,33 @@
+name: CI for screenshot
+on: push
+jobs:
+  screenshot:
+    name: Screenshot
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0
+      - name: Screenshot Website
+        uses: swinton/screenshot-website@v1.x
+        with:
+          source: https://events-countdown.vercel.app/
+          destination: preview_image.png      
+      - uses: actions/download-artifact@v2
+        with:
+          name: preview_image
+          path: public/
+      - name: Commit files
+        if: github.event.commits[0].message != 'Update Website Preview Image'
+        run: |
+          git config --global user.email "icy-bot@users.noreply.github.com"
+          git config --global user.name "Borworntat Dendumrongkul"
+          git add public/preview_image.png
+          git commit -m "Update Website Preview Image" -a
+      - name: Push changes
+        if: github.event.commits[0].message != 'Update Website Preview Image'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: main

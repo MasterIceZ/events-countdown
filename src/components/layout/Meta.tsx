@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { Event } from "../const/event";
+import { now } from "../const/now";
 
 const Meta = () => {
   return (
     <Head>
-      <title>{Event.name} Countdown</title>
+      <title>{now.name} Countdown</title>
       <meta name="twitter:image" content="https://events-countdown.vercel.app/preview_image.png" />
     </Head>
   );

@@ -13,4 +13,4 @@ function find_now(){
     }
 }
 
-export const now:any = find_now()
+export const current:any = find_now()

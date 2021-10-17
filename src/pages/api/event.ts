@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Event } from "../../components/const/event";
+import { current } from "../../components/const/now";
 
 const event = (req: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200;
   res.json({
-	  Event
+	  current
   });
 };
 

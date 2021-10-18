@@ -1,5 +1,10 @@
 name: CI for screenshot
-on: push
+on: 
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 1"
 jobs:
   screenshot:
     name: Screenshot

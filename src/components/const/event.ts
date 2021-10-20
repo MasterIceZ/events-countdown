@@ -8,12 +8,13 @@ export const Event:any[] = [
     {
         date: 'October 31, 2021 10:00:00',
         name: 'Halloween'
-    },
-    {
+    },{
         date: 'December 9, 2021 08:00:00',
         name: '17th Thailand Olympiad in Informatics(TOI17)'
-    },
-    {
+    },{
+        date: 'December 25, 2021 00:00:00',
+        name: 'Christmas 2021'
+    },{
         date: 'January 1, 2022 00:00:00',
         name: 'New Year 2022'
     }

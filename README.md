@@ -1,3 +1,13 @@
+# Events Countdown
+
+## Clone Project
+```bash
+git clone https://github.com/MasterIceZ/events-countdown.git
+```
+
+## Create New Event
+You can add new event at ``src/components/const/event.ts``
+
 ## Getting Started
 
 You can either click `Use this template` button on this repository and clone the repo or create project with `create-next-app` like so:

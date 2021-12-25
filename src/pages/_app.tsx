@@ -6,7 +6,7 @@ import "@fontsource/lexend/latin.css";
 import Layout from "components/layout";
 
 import customTheme from "styles/customTheme";
-import "styles/globals.css";
+// import "styles/globals.css";
 
 import Link from "next/link";
 

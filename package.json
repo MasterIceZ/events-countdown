@@ -19,6 +19,7 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@fontsource/lexend": "^4.5.0",
+    "binary-search-bounds": "^2.0.5",
     "framer-motion": "^4.1.17",
     "next": "^11.1.1",
     "next-pwa": "^5.3.0",

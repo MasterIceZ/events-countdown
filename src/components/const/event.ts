@@ -17,7 +17,13 @@ export const Event:any[] = [
     },{
         date: 'January 1, 2022 00:00:00',
         name: 'New Year 2022'
-    }
+    },{
+		date: 'Febuary 14, 2022 00:00:00',
+		name: "Valentine's Day"
+	},{
+		date: 'January 9, 2022 00:00:00',
+		name: "POSN'64 Test"
+	}
 ]
 
 export const sorted:any[] = Event.slice().sort((a, b) => {

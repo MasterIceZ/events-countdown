@@ -1,23 +1,29 @@
 import { sorted } from "./event";
-import { gt } from "binary-search-bounds";
 
-function isBefore(Event: any){
-    var day = Event.date;
+interface EVENT{
+	date: string;
+	name: string;
+}
+
+function isBefore(event: string){
+    var day = event;
     return new Date(day) < new Date(new Date().toDateString());
 }
 
 function find_now(){
 	var l = 0, r = sorted.length - 1;
 	while(l < r){
-		var mid = (1 + l + r) >> 1;
-		if(isBefore(sorted[mid])){
-			r = mid - 1;
+		var mid = (l + r) >> 1;
+		console.log(mid);
+		if(isBefore(sorted[mid].date)){
+			l = mid + 1;
 		}
 		else{
-			l = mid;
+			r = mid;
 		}
 	}
-	return sorted[l];
+	console.log(sorted[r]);
+	return sorted[r];
 }
 
 export const current:any = find_now()

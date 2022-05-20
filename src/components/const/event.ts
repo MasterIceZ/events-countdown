@@ -23,6 +23,9 @@ export const Event:any[] = [
 	},{
 		date: 'January 9, 2022 00:00:00',
 		name: "POSN'64 Test"
+	}, {
+		date: 'June 1, 2022 00:00:00',
+		name: '18th Thailand Olympiad in Informatics(TOI18)'
 	}
 ]
 

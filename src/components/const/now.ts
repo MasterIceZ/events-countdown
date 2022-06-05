@@ -7,7 +7,7 @@ interface EVENT {
 
 function isBefore(event: any) {
 	var day = create_date(event);
-	return new Date(day) < new Date(new Date().toDateString());
+	return new Date(day) < new Date(Date(new Date().toDateString()));
 }
 
 function find_now() {

@@ -5,7 +5,7 @@ export function create_date(x: any) {
 	if (x.year === "yearly") {
 		var current = x.month + " " + x.day + ", " + now_year;
 		var next = x.month + " " + x.day + ", " + next_year;
-		if (new Date(current) < new Date(Date().toDateString())) {
+		if (new Date(current) < new Date(new Date().toDateString())) {
 			txt = next;
 		} else {
 			txt = current;

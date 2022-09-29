@@ -71,6 +71,12 @@ export const Event: any[] = [
 		year: "2022",
 		name: "POSN's camp 1 selection test",
 	},
+	{
+		day: "1",
+		month: "October",
+		year: "yearly",
+		name: "Hacktoberfest",
+	},
 ];
 
 export const sorted: any[] = Event.slice().sort((a, b) => {

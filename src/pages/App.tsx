@@ -62,26 +62,15 @@ function getTime(wanted: any) {
 }
 
 function App() {
-	const calculate = () => {
-		let year: number = new Date().getFullYear();
-		const diff = +new Date(`2022-8-20`) - +new Date();
-		let timeLeft = {};
-		if (diff > 0) {
-			timeLeft = {
-				days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-				hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-				minutes: Math.floor((diff / 1000 / 60) % 60),
-				seconds: Math.floor((diff / 1000) % 60),
-			};
-		}
-		return timeLeft;
+	const t = () => {
+		return Math.random() * 1000;
 	};
 
-	const [timeLeft, setTimeLeft] = useState(calculate());
-	const [year] = useState(new Date().getFullYear());
+	const [a, b] = useState(t());
+	const [c] = useState(new Date().getFullYear());
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setTimeLeft(calculate());
+			b(t());
 		}, 1000);
 	});
 
@@ -89,11 +78,10 @@ function App() {
 	let next_print: String = getTime(next_time);
 	let print: String = "";
 	let name_print: String = "";
-	if(current_print === "Expired"){
+	if (current_print === "Expired") {
 		name_print = next_time.name;
 		print = next_print;
-	}
-	else{
+	} else {
 		name_print = current.name;
 		print = current_print;
 	}

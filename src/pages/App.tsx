@@ -6,55 +6,30 @@ import {
 	Box,
 	useEventListenerMap,
 } from "@chakra-ui/react";
-import { current } from "../components/const/now";
+import { current, next_time } from "../components/const/now";
 import styles from "../styles/App.module.css";
 import { sorted } from "../components/const/event";
-function App() {
-	const calculate = () => {
-		let year: number = new Date().getFullYear();
-		const diff = +new Date(`2022-8-20`) - +new Date();
-		let timeLeft = {};
-		if (diff > 0) {
-			timeLeft = {
-				days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-				hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-				minutes: Math.floor((diff / 1000 / 60) % 60),
-				seconds: Math.floor((diff / 1000) % 60),
-			};
-		}
-		//console.log(diff);
-		return timeLeft;
-	};
 
-	const [timeLeft, setTimeLeft] = useState(calculate());
-	const [year] = useState(new Date().getFullYear());
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setTimeLeft(calculate());
-		}, 1000);
-	});
-
-	const timerComp = [];
+function getTime(wanted: any) {
 	const comp_ = {
-		diff: Number(new Date(current.date).getTime() - new Date().getTime()),
+		diff: Number(new Date(wanted.date).getTime() - new Date().getTime()),
 		days: Math.floor(
-			(new Date(current.date).getTime() - new Date().getTime()) /
+			(new Date(wanted.date).getTime() - new Date().getTime()) /
 				(1000 * 60 * 60 * 24)
 		),
 		hours: Math.floor(
-			((new Date(current.date).getTime() - new Date().getTime()) /
+			((new Date(wanted.date).getTime() - new Date().getTime()) /
 				(1000 * 60 * 60)) %
 				24
 		),
 		minutes: Math.floor(
-			((new Date(current.date).getTime() - new Date().getTime()) / 1000 / 60) %
+			((new Date(wanted.date).getTime() - new Date().getTime()) / 1000 / 60) %
 				60
 		),
 		seconds: Math.floor(
-			((new Date(current.date).getTime() - new Date().getTime()) / 1000) % 60
+			((new Date(wanted.date).getTime() - new Date().getTime()) / 1000) % 60
 		),
 	};
-	//	console.log(sorted);
 	let print: String = "";
 	if (comp_.diff < 0) {
 		print = "Expired";
@@ -83,12 +58,38 @@ function App() {
 			print += String(comp_.seconds);
 		}
 	}
+	return print;
+}
 
+function App() {
+	const t = () => {
+		return Math.random() * 1000;
+	};
+
+	const [a, b] = useState(t());
+	const [c] = useState(new Date().getFullYear());
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			b(t());
+		}, 1000);
+	});
+
+	let current_print: String = getTime(current);
+	let next_print: String = getTime(next_time);
+	let print: String = "";
+	let name_print: String = "";
+	if (current_print === "Expired") {
+		name_print = next_time.name;
+		print = next_print;
+	} else {
+		name_print = current.name;
+		print = current_print;
+	}
 	return (
 		<>
 			<div id={styles.cen}>
 				<Text id={styles.title} color="gray.500">
-					{current.name}
+					{name_print}
 				</Text>
 				<Text id={styles.title} color="gray.500">
 					will begin in

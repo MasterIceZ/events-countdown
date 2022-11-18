@@ -11,7 +11,7 @@ export function create_date(x: any) {
 			txt = current;
 		}
 	} else {
-		txt = x.month + " " + x.day + ", " + now_year;
+			txt = x.month + " " + x.day + " " + x.year;
 	}
 	return txt;
 }
@@ -76,6 +76,12 @@ export const Event: any[] = [
 		month: "October",
 		year: "yearly",
 		name: "Hacktoberfest",
+	},
+	{
+		day: "10",
+		month: "December",
+		year: "2022",
+		name: "TGAT Test 😊",
 	},
 ];
 
